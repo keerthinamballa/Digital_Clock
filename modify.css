@@ -1,0 +1,240 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    overflow-x: hidden;
+}
+
+body{
+    background-color: var(--primary-color);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+:root{
+    --primary-color: #081B33;
+    --secondary-color: #152642;
+}
+
+.light-theme{
+    --primary-color: #f8f9fa;
+    --secondary-color: #ffffff;
+}
+
+
+.header{
+    position: relative;
+    width: 100%;
+    height: 6em;
+    background-color: var(--primary-color);
+    color: #ff0084;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header a{
+    margin: 0 30px;
+    color: #ff0084;
+
+}
+
+.logo i{
+    font-size: 50px;
+}
+
+.navlist{
+    display: flex;
+    margin: 0 20px;
+    font-weight: 600;
+    font-size: 20px;
+    list-style: none;
+}
+
+.navlink:link, .navlink:visited{
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #ff0084;
+    transition: all 0.3s;
+}
+
+
+.navbar-btn{
+    display: none;
+    background: transparent;
+    cursor: pointer;
+    margin: 30px 0;
+}
+
+.nav-icon{
+    width: 4rem;
+    height: 4rem;
+    font-weight: 600;
+    color: #ff0084;
+}
+
+.nav-icon[name = "close-outline"]{
+    display: none;
+}
+
+@media (max-width: 980px){
+    .navbar-btn{
+        display: block;
+        z-index: 999;
+    }
+
+    .navbar{
+        width: 100%;
+        height: 100vh;
+        background: var(--secondary-color);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%);
+        transition: all 0.5s linear;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .active .navbar{
+        transform: translateX(0);
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .active .navbar-btn .nav-icon[name = "close-outline"]{
+        display: block;
+    }
+
+    .active .navbar-btn .nav-icon[name = "menu-outline"]{
+        display: none;
+    }
+
+    .navlist{
+        flex-direction: column;
+        align-items: center;
+        line-height: 3;
+    }
+}
+
+#icon{
+    position: relative;
+    float: right;
+    margin-right: 4%;
+    cursor: pointer;
+    width: 35px;
+}
+
+.digitalclock{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ff0084;
+    width: 425px;
+    padding: 20px 45px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.8);
+    background: var(--secondary-color);
+    border-radius: 10px;
+    flex-direction: column;
+    line-height: 1.4;
+}
+
+.calendar{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    font-weight: 500;
+    background: -webkit-linear-gradient(90deg, #bc4e9c, #f80759);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.day, .date, .year{
+    margin-left: 8px;
+}
+
+.time{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.hours{
+    display: none;
+    /* color: var(--primary-color); */
+}
+
+.minute{
+    font-size: 7.5em;
+    background: -webkit-linear-gradient(90deg, #7F00FF,#E100FF);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.colon{
+    font-size: 4.5em;
+    transform: translateY(-20%);
+    margin: 0 12px;
+    color: #928DAB;
+}
+
+.sec{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+}
+
+.second{
+    font-size: 5.5em;
+    background: -webkit-linear-gradient(90deg, #1FA2FF, #12D8FA, #A6FFCB);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+.ampm{
+    margin: 0 8px;
+    font-size: 1.4em;
+    background: -webkit-linear-gradient(90deg, #ff7e5f, #feb47b);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+@media (max-width: 460px) {
+    .digitalclock{
+        width: 90%;
+        margin: 0;
+        padding: 15px 10px;
+    }
+}
+
+@media (max-width: 300px){
+    .minute{
+        font-size: 5.8em;
+    }
+    .second{
+        font-size: 3.6em;
+    }
+    .colon{
+        font-size: 3em;
+    }
+    .calendar{
+        font-size: 1em;
+    }
+}
